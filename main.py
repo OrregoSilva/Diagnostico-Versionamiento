@@ -22,11 +22,19 @@ def main():
 
     # print()
 
-    top_users = get_users_with_most_tweets(tweets, 10)
+    # top_users = get_users_with_most_tweets(tweets, 10)
 
-    print('Top users:')
-    for user, ammount in top_users:
-        print(f'{user}: {ammount} tweets')
+    # print('Top users:')
+    # for user, ammount in top_users:
+    #     print(f'{user}: {ammount} tweets')
+
+    # print()
+
+    top_days = get_days_with_most_tweets(tweets, 10)
+
+    print('Top Days:')
+    for day, ammount in top_days:
+        print(f'{day}: {ammount} tweets')
 
     print()
 
