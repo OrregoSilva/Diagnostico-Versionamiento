@@ -30,11 +30,19 @@ def main():
 
     # print()
 
-    top_days = get_days_with_most_tweets(tweets, 10)
+    # top_days = get_days_with_most_tweets(tweets, 10)
 
-    print('Top Days:')
-    for day, ammount in top_days:
-        print(f'{day}: {ammount} tweets')
+    # print('Top Days:')
+    # for day, ammount in top_days:
+    #     print(f'{day}: {ammount} tweets')
+
+    # print()
+
+    top_hashtags = get_top_hashtags(tweets, 10)
+
+    print('Top Hashtags:')
+    for ht, ammount in top_hashtags:
+        print(f'{ht}: {ammount} times')
 
     print()
 
