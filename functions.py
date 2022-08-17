@@ -52,4 +52,20 @@ def get_days_with_most_tweets(tweets, n):
 
 
 def get_top_hashtags(tweets, n):
-    pass
+    hashtags = defaultdict(int)
+    for tweet in tweets:
+        aux = tweet['content'].split()
+        hashtags_in_tweet = filter(
+            lambda word: word.startswith('#'),
+            aux
+        )
+        for hashtag in hashtags_in_tweet:
+            hashtags[hashtag] += 1
+
+    top = sorted(
+        hashtags.items(),
+        key=lambda hashtag: hashtag[1],
+        reverse=True
+    )
+
+    return top[:n]
