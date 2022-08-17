@@ -1,4 +1,5 @@
 import json
+from collections import defaultdict
 
 
 def load_tweets(filename):
@@ -13,14 +14,25 @@ def load_tweets(filename):
 def get_most_tweets_retweeted(tweets, n):
     retweeted = sorted(
         tweets,
-        key=lambda tweet: tweet['retweetCount']
+        key=lambda tweet: tweet['retweetCount'],
+        reverse=True
     )
 
-    return retweeted[-n:]
+    return retweeted[:n]
 
 
 def get_users_with_most_tweets(tweets, n):
-    pass
+    users = defaultdict(int)
+    for tweet in tweets:
+        users[tweet['user']['username']] += 1
+
+    top = sorted(
+        users.items(),
+        key=lambda user: user[1],
+        reverse=True
+    )
+
+    return top[:n]
 
 
 def get_days_with_most_tweets(tweets, n):

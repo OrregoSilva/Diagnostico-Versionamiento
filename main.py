@@ -14,11 +14,19 @@ def main():
 
     tweets = load_tweets(FILENAME)
 
-    top_retweeted = get_most_tweets_retweeted(tweets, 10)
+    # top_retweeted = get_most_tweets_retweeted(tweets, 10)
 
-    print('Top retweeted:')
-    for tweet in top_retweeted:
-        print(tweet['content'])
+    # print('Top retweeted:')
+    # for tweet in top_retweeted:
+    #     print(tweet['content'])
+
+    # print()
+
+    top_users = get_users_with_most_tweets(tweets, 10)
+
+    print('Top users:')
+    for user, ammount in top_users:
+        print(f'{user}: {ammount} tweets')
 
     print()
 
