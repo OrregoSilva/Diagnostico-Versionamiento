@@ -16,9 +16,14 @@ def get_most_tweets_retweeted(tweets, n):
         tweets,
         key=lambda tweet: tweet['retweetCount'],
         reverse=True
-    )
+    )[:n]
 
-    return retweeted[:n]
+    with_count = [
+        (tweet['content'], tweet['retweetCount'])
+        for tweet in retweeted
+    ]
+
+    return with_count
 
 
 def get_users_with_most_tweets(tweets, n):
